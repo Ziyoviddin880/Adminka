@@ -4,6 +4,8 @@ import { useRef } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import Button from "../../components/button/Button";
+import Star from "../../icons/Star";
 
 const LoginPage = () => {
   const baseURL = import.meta.env.VITE_BASE_URL;
@@ -31,33 +33,34 @@ const LoginPage = () => {
       .then((res) => {
         localStorage.setItem("token", res.data.data.tokens.accessToken.token);
         toast.success(res.data.message);
-        navigate("/");
+        setTimeout(() => {
+          navigate("/");
+        }, 1000);
       })
       .catch((err) => {
-        console.log(err);
         toast.error(err.response.data.message);
       });
 
-// Fetch orqali
+    // Fetch orqali
 
-  //   console.log(`${baseURL}auth/signin`);
-  //   fetch(`${baseURL}auth/signin`, {
-  //     method: "POST",
-  //     body: JSON.stringify({
-  //       phone_number: number.current.value,
-  //       password: password.current.value,
-  //     }),
-  //     headers: {
-  //       "Content-Type": "application/json; charset=utf-8;multipart/form-data ",
-  //     },
-  //   })
-  //     .then((res) => {
-  //       console.log(res);
-  //       res.json();
-  //     })
-  //     .then((data) => console.log(data));
-  // };
-}
+    //   console.log(`${baseURL}auth/signin`);
+    //   fetch(`${baseURL}auth/signin`, {
+    //     method: "POST",
+    //     body: JSON.stringify({
+    //       phone_number: number.current.value,
+    //       password: password.current.value,
+    //     }),
+    //     headers: {
+    //       "Content-Type": "application/json; charset=utf-8;multipart/form-data ",
+    //     },
+    //   })
+    //     .then((res) => {
+    //       console.log(res);
+    //       res.json();
+    //     })
+    //     .then((data) => console.log(data));
+    // };
+  };
 
   return (
     <div className="login">
@@ -83,7 +86,9 @@ const LoginPage = () => {
           />
         </label>{" "}
         <br />
-        <button type="submit">Kirish</button>
+        <Button success={true} type="submit">
+          Submit
+        </Button>
       </form>
     </div>
   );
