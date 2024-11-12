@@ -1,10 +1,10 @@
 import axios from "axios";
 import { toast } from "react-toastify";
 
-export const useCreate = async (url, formData, onPostSuccess) => {
+export const updateHook = async (url, formData, onUpdateSuccess) => {
   const token = localStorage.getItem("token");
   try {
-    const response = await axios.post(url, formData, {
+    const response = await axios.put(url, formData, {
       headers: {
         "Content-Type": "multipart/form-data",
         Authorization: `Bearer ${token}`,
@@ -12,9 +12,7 @@ export const useCreate = async (url, formData, onPostSuccess) => {
     });
     if (response?.data?.success) {
       toast.success(response.data.message);
-      onPostSuccess();
+      onUpdateSuccess();
     }
-  } catch (err) {
-    console.log(err);
-  }
+  } catch (err) {}
 };

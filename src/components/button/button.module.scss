@@ -1,24 +1,24 @@
-@import "../../variables.scss";
+@use "../../variables";
 
 button {
   padding: 10px;
   border-radius: 5px;
   outline: none;
   border: none;
-  color: $color-white;
-  font-size: $size-middle;
-  transition: $transition;
+  color: variables.$color-white;
+  font-size: variables.$size-middle;
+  transition: variables.$transition;
   cursor: pointer;
 }
 .success {
-  background-color: $color-primary;
+  background-color: variables.$color-primary;
   &:hover {
-    background-color: rgba($color-primary, 0.8);
+    background-color: rgba(variables.$color-primary, 0.8);
   }
 }
 .danger {
-  background-color: $color-danger;
+  background-color: variables.$color-danger;
   &:hover {
-    background-color: rgba($color-danger, 0.8);
+    background-color: rgba(variables.$color-danger, 0.8);
   }
 }

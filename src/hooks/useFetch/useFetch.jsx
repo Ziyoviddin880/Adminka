@@ -7,26 +7,26 @@ export const useFetch = (url) => {
   const [error, setError] = useState(null);
   const token = localStorage.getItem("token");
 
-  useEffect(() => {
-    const fetchData = async () => {
-      setIsPending(true);
-      try {
-        const response = await axios.get(url, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-        setData(response);
-        setIsPending(false);
-        // throw new Error(response);
-      } catch (err) {
-        setError(err.message);
-        setIsPending(false);
-      }
-    };
+  const fetchData = async () => {
+    setIsPending(true);
+    try {
+      const response = await axios.get(url, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      setData(response);
+      setIsPending(false);
+      // throw new Error(response);
+    } catch (err) {
+      setError(err.message);
+      setIsPending(false);
+    }
+  };
 
+  useEffect(() => {
     fetchData();
   }, [url]);
 
-  return { data, isPending, error };
+  return { data, isPending, error, fetchData };
 };

@@ -1,20 +1,21 @@
 import axios from "axios";
 import { toast } from "react-toastify";
 
-export const useCreate = async (url, formData, onPostSuccess) => {
+export const Delete = async (url, onDeleteSuccess) => {
   const token = localStorage.getItem("token");
   try {
-    const response = await axios.post(url, formData, {
+    const response = await axios.delete(url, {
       headers: {
-        "Content-Type": "multipart/form-data",
         Authorization: `Bearer ${token}`,
       },
     });
     if (response?.data?.success) {
       toast.success(response.data.message);
-      onPostSuccess();
+      onDeleteSuccess();
     }
   } catch (err) {
-    console.log(err);
+    if (err.status === 500) {
+      toast.error("This cannot be deleted.");
+    }
   }
 };

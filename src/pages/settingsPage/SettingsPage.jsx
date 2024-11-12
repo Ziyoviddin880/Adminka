@@ -1,7 +1,5 @@
-import React from "react";
-
 const SettingsPage = () => {
-  return <div>SettingsPage</div>;
+  return <div className="categories-page">Welcome to Admin Panel</div>;
 };
 
 export default SettingsPage;

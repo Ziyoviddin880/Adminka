@@ -1,4 +1,23 @@
+@use "../../variables";
+
 input {
-  padding: 15px;
-  border-radius: 10px;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid variables.$color-opacity-text;
+  border-radius: 3px;
+  margin-bottom: 20px;
+  &:hover {
+    border: 1px solid variables.$color-primary;
+  }
+  &:focus {
+    outline: 1px solid variables.$color-primary;
+  }
+  &:first-child {
+    margin-top: 20px;
+  }
+  // &[type="file"] {
+  //   width: 100px;
+  //   background-color: variables.$color-opacity-box;
+  //   cursor: pointer;
+  // }
 }
