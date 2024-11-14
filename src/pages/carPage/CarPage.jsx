@@ -4,7 +4,9 @@ import Button from "../../components/button/Button";
 import Loadig from "../../components/loading/Loading";
 import Table from "../../components/table/Table";
 import Modal from "../../components/modal/Modal";
+import { Delete } from "../../hooks/delete/Delete";
 import { useCreate } from "../../hooks/usePost/useCreate";
+import { updateHook } from "../../hooks/update/updateHook";
 
 const BrandsPage = () => {
   const baseURL = import.meta.env.VITE_BASE_URL;
@@ -54,8 +56,32 @@ const BrandsPage = () => {
 
   const resetForm = () => {
     setColor("");
+    setYear("");
+    setSeconds("");
+    setMaxSpeed("");
+    setMaxPeople("");
+    setPremium("");
+    setChecked(false);
+    setTransmission("");
+    setMotor("");
+    setDriveside("");
+    setPetrol("");
+    setLimitperday("");
+    setDeposit("");
+    setPriceaed("");
+    setPriceusd("");
+    setSaleaed("");
+    setSaleusd("");
+    setBrandId("");
+    setModelId("");
+    setCityId("");
+    setLocationId("");
+    setCategoryId("");
+    setUpdateData("");
     setUpdateData([]);
-    setBrandId(null);
+    picture1Ref.current.value = "";
+    picture2Ref.current.value = "";
+    picture3Ref.current.value = "";
   };
 
   const postData = (e) => {
@@ -82,6 +108,7 @@ const BrandsPage = () => {
     formData.append("price_in_usd", priceusd);
     formData.append("price_in_aed_sale", saleaed);
     formData.append("price_in_usd_sale", saleusd);
+    formData.append("inclusive", checked);
 
     formData.append("cover", picture1Ref.current.files[0]);
     formData.append("images", picture2Ref.current.files[0]);
@@ -92,18 +119,41 @@ const BrandsPage = () => {
       useCreate(`${baseURL}cars`, formData, fetchData);
     }
 
-    // setOpenModal(false);
-    // resetForm();
-    // setUpdateData([]);
-    // setUpdateId(null);
+    setOpenModal(false);
+    resetForm();
+    setUpdateData([]);
+    setUpdateId(null);
   };
 
   const updateItem = (item) => {
     console.log(item);
     setUpdateData((prev) => [...prev, item]);
-    // setName(item.name);
-    // setBrandId(item.brand_id);
-    // setUpdateId(item.id);
+
+    setColor(item.color);
+    setYear(item.year);
+    setSeconds(item.seconds);
+    setMaxSpeed(item.max_speed);
+    setMaxPeople(item.max_people);
+    setPremium(item.premium_protection);
+    setChecked(item.inclusive);
+    setTransmission(item.transmission);
+    setMotor(item.motor);
+    setDriveside(item.drive_side);
+    setPetrol(item.petrol);
+    setLimitperday(item.limitperday);
+    setDeposit(item.deposit);
+    setPriceaed(item.price_in_aed);
+    setPriceusd(item.price_in_usd);
+    setSaleaed(item.price_in_aed_sale);
+    setSaleusd(item.price_in_usd_sale);
+    setBrandId(item.brand_id);
+    setModelId(item.model_id);
+    setCityId(item.city_id);
+    setLocationId(item.location_id);
+    setCategoryId(item.category_id);
+    // setUpdateData([]);
+
+    setUpdateId(item.id);
   };
   return (
     <>
@@ -348,7 +398,7 @@ const BrandsPage = () => {
                 setDeposit(e.target.value);
               }}
               type="text"
-              placeholder="Transmission"
+              placeholder="Deposit"
             />
             <input
               value={priceaed}

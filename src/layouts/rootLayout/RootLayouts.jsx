@@ -43,12 +43,7 @@ const RootLayouts = () => {
                 {shortMenu ? "" : <span>Dashboard</span>}
               </li>
             </NavLink>
-            <NavLink to="/settings">
-              <li>
-                <SettingsIcon />
-                {shortMenu ? "" : <span>Settings</span>}
-              </li>
-            </NavLink>
+
             <NavLink to="/brands">
               <li>
                 <BrandIcon />

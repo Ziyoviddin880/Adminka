@@ -1,4 +1,4 @@
-@import "../../variables.scss";
+@use "../../variables";
 
 .window-box {
   width: 100%;
@@ -7,16 +7,16 @@
   .menu-side {
     width: 250px;
     height: 100%;
-    background-color: $color-menu;
+    background-color: variables.$color-menu;
     padding: 5px;
 
     h1 {
       margin-top: 10px;
       a {
-        color: $color-white;
+        color: variables.$color-white;
         text-decoration: none;
         opacity: 0.8;
-        transition: $transition;
+        transition: variables.$transition;
         cursor: pointer;
         &:hover {
           opacity: 1;
@@ -30,11 +30,11 @@
         width: 100%;
         vertical-align: center;
         text-decoration: none;
-        color: $color-white;
+        color: variables.$color-white;
         opacity: 0.7;
-        transition: $transition;
+        transition: variables.$transition;
         font-size: 20px;
-        font-weight: $font-bold;
+        font-weight: variables.$font-bold;
         li {
           list-style: none;
           padding: 10px 15px;
@@ -42,7 +42,7 @@
             margin-right: 15px;
             width: 20px;
             height: 20px;
-            fill: $color-white;
+            fill: variables.$color-white;
           }
         }
         &:hover {
@@ -52,7 +52,7 @@
       .active {
         opacity: 1;
         li {
-          background-color: $color-primary;
+          background-color: variables.$color-primary;
           border-radius: 5px;
         }
       }
@@ -83,7 +83,7 @@
           }
           svg {
             width: 10px;
-            fill: $color-white;
+            fill: variables.$color-white;
           }
         }
 
@@ -94,7 +94,7 @@
     main {
       padding: 30px;
       height: calc(100vh - 140px);
-      background-color: $color-main;
+      background-color: variables.$color-main;
     }
   }
 }

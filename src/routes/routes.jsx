@@ -23,10 +23,7 @@ export const routes = createBrowserRouter([
         index: true,
         element: <HomePage />,
       },
-      {
-        path: "/settings",
-        element: <SettingsPage />,
-      },
+
       {
         path: "/brands",
         element: <BrandsPage />,
