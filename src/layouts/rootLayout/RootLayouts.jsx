@@ -7,7 +7,6 @@ import HomeIcon from "../../icons/HomeIcon";
 import LocationIcon from "../../icons/LocationIcon";
 import ModelIcon from "../../icons/ModelIcon";
 import NextPrev from "../../icons/NextPrev";
-import SettingsIcon from "../../icons/SettingsIcon";
 import UserIcon from "../../icons/UserIcon";
 import "./rootLayout.scss";
 import { NavLink, Outlet, useNavigate, Navigate } from "react-router-dom";
